@@ -15,19 +15,19 @@ public class Weather {
 	RequestSpecification requestSpec;
 	Response response;
 	
-	@Given("^There is a rest api$")
+	@Given("^There is a rest api to check crypto price$")
 	public void i_want_to_check_weather_of_a_city() throws Throwable {
-	  baseObj.baseURI = "http://restapi.demoqa.com/utilities/weather/city";
+	  baseObj.baseURI = "https://api.coinbase.com/v2";
 	  requestSpec = baseObj.given();
 	}
 	
-	@When("^I provide a city name$")
+	@When("^I provide Bitcoin$")
 	public void provide_city_name() throws Throwable {
-	  response = requestSpec.request(Method.GET, "/Aurangabad");
+	  response = requestSpec.request(Method.GET, "/exchange-rates?currency=BTC");
 
 	}
 	
-	@Then("^I get weather information$")
+	@Then("^I get price information$")
 	public void get_weather_information() throws Throwable {
 	  Assert.assertEquals(200, response.getStatusCode());
 		String responseBody = response.getBody().asString();

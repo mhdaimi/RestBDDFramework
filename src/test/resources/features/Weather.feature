@@ -1,6 +1,6 @@
-Feature: Check weather of a city
+Feature: Check Bitcoin Price
 
-Scenario: Check weather of city
-Given There is a rest api
-When I provide a city name
-Then I get weather information
+Scenario: Check Bitcoin Price
+Given There is a rest api to check crypto price
+When I provide Bitcoin
+Then I get price information
