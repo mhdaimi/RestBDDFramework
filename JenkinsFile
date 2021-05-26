@@ -1,0 +1,22 @@
+pipeline{
+
+	agent any;
+	
+	stages("Build"){
+		
+		stage("Run Build"){
+			
+			step("Build"){
+				bat "mvn clean test"
+			}
+			
+		}
+	
+	}
+
+
+
+
+}
+
+
