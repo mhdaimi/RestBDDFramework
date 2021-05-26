@@ -21,15 +21,14 @@ pipeline{
 				bat "mvn package"
 			}
 		}
-		
-		stage("Results"){
-			steps{
-				archiveArtifacts: "target/reports/index.html"
-			}
-		}
-	
 	}
 
+	post {
+        always {
+            archiveArtifacts artifacts: 'target/reports/index.html', fingerprint: true
+            
+        }
+    }
 
 
 
