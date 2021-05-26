@@ -2,14 +2,30 @@ pipeline{
 
 	agent any;
 	
-	stages("Build"){
+	stages{
 		
-		stage("Run Build"){
-			
-			steps("Build"){
-				bat "mvn clean test"
+		stage("Clean"){
+			steps{
+				bat "mvn clean"
 			}
-			
+		}
+		
+		stage("Test"){
+			steps{
+				bat "mvn test"
+			}
+		}
+		
+		stage("Package"){
+			steps{
+				bat "mvn package"
+			}
+		}
+		
+		stage("Results"){
+			steps{
+				archiveArtifacts: "target/reports/index.html"
+			}
 		}
 	
 	}
