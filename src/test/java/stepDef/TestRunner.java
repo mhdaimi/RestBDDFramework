@@ -10,7 +10,8 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		
 		features="src\\test\\resources\\features",
-		glue="stepDef"
+		glue="stepDef",
+		plugin={"pretty", "html:target/reports"}
 		)
 public class TestRunner {
 
